@@ -1,0 +1,107 @@
+Complete the timeConversion function in the editor below. It should return a new string representing the input time in 24 hour format.
+
+timeConversion has the following parameter(s):
+
+string s: a time in  hour format
+Returns
+
+string: the time in  hour format
+Input Format
+
+A single string  that represents a time in -hour clock format (i.e.:  or ).
+
+Constraints
+
+All input times are valid
+Sample Input 0
+
+07:05:45PM
+Sample Output 0
+
+19:05:45
+Submissions: 68
+Max Score: 15
+Difficulty: Easy
+Rate This Challenge:
+
+    
+More
+ 
+1
+#!/bin/python3
+2
+?
+3
+import math
+4
+import os
+5
+import random
+6
+import re
+7
+import sys
+8
+?
+9
+#
+10
+# Complete the 'timeConversion' function below.
+11
+#
+12
+# The function is expected to return a STRING.
+13
+# The function accepts STRING s as 
+14
+?
+15
+def timeConversion(s):
+16
+    hours, minutes, seconds = map(int, s[:-2].split(':'))
+17
+    am_pm = s[-2:]
+18
+    if am_pm == 'AM' and hours == 12:
+19
+        hours = 0
+20
+    elif am_pm == 'PM' and hours != 12:
+21
+        hours += 12
+22
+    result = '{:02d}:{:02d}:{:02d}'.format(hours, minutes, seconds)
+23
+    return result
+24
+s = '07:05:45PM'
+25
+result = timeConversion(s)
+26
+print(result)
+27
+?
+28
+if _name_ == '_main_':
+29
+?
+30
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+31
+?
+32
+    s = input()
+33
+?
+34
+    result = timeConversion(s)
+35
+?
+36
+    fptr.write(result + '\n')
+37
+?
+38
+    fptr.close()
+39
+?
